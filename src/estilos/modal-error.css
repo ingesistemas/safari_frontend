@@ -1,0 +1,51 @@
+/* Estilos generales del modal */
+.modal-error {
+  border: 2px solid #f44336;
+  animation: aparecer 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(244, 67, 54, 0.5);
+}
+
+/* Header */
+.modal-error .p-dialog-header {
+  color: rgb(247, 4, 4);
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: #eeeeee;
+  padding: 10px;
+}
+
+/* Contenido */
+.modal-error .p-dialog-content {
+  padding: 1.5rem;
+}
+
+/* Cuerpo con ícono y texto */
+.contenido-error-dialogo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icono-error {
+  font-size: 18px !important;
+  color: #8b0b02;
+}
+.footerModal{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    align-items: flex-end;
+}
+
+/* Animación */
+@keyframes aparecer {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

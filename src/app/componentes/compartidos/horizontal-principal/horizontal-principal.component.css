@@ -1,0 +1,120 @@
+:root {
+      --azul: #1d4ed8;
+      --azul-claro: #93c5fd;
+      --gris-claro: #f3f4f6;
+      --gris-oscuro: #374151;
+      --blanco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--gris-claro);
+    }
+
+    nav {
+     /*box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;*/
+     /*box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;*/
+    /*box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;*/
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+      height: 70px;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-size: 1rem;
+      color: var(--azul);
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      margin-top: 10px;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color:#00268f;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      height: 70px;
+      margin-top: -10px !important;
+      margin-left: -17px !important;
+      text-align: center;
+      padding: 22px 15px;
+    }
+
+    .nav-links a:hover {
+      background-color: #d3d3d3;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--gris-oscuro);
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--blanco);
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease;
+      }
+
+      .nav-links.open {
+        max-height: 300px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+    }
+
+    .btnCerrarSesion {
+      display: flex; /* Hace que el contenido interno (ícono + texto) también se alinee bien */
+      align-items: center;
+     
+    }
+
+    .contieneSesion {
+      margin-left: auto !important; /* Esto empuja el botón a la derecha */
+      display: flex;
+      align-items: center;
+      margin-top: -10px !important;
+    }
+
+    .left-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }

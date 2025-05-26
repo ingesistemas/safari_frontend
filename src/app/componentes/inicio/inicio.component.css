@@ -1,0 +1,70 @@
+@import "aos/dist/aos.css";
+:root {
+      --azul: #3b82f6;
+      --azul-claro: #dbeafe;
+      --gris-claro: #f1f5f9;
+      --gris-texto: #475569;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      color: var(--gris-texto);
+    }
+
+    
+
+    .section {
+      padding: 80px 30px;
+      background: var(--gris-claro);
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: var(--azul);
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: var(--azul);
+      margin: 0 0 10px;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: var(--azul-claro);
+      color: #1e3a8a;
+      padding: 40px 20px;
+      text-align: center;
+    }

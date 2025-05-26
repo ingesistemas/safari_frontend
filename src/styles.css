@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+
+
+/* .popover {
+  max-width: 700px;  
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+    background-color: #f8f9fa; 
+
+}
+
+.popover-header {
+  font-weight: bold;
+  font-size: 1.1rem;
+    background-color: #f4f4f4; 
+  color: rgb(0, 89, 140);
+}
+
+.popover-body {
+  font-size: 0.95rem;
+  color: #333;
+   background-color: #ffffff; 
+
+}
+
+.bs-popover-auto,
+.bs-popover-top,
+.bs-popover-end,
+.bs-popover-bottom,
+.bs-popover-start {
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+
+} */
+
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffffff);
+      /*display: flex;*/
+      /*justify-content: center;*/
+      /*align-items: center;*/
+      height: 100vh;
+    }
+
+.bs-popover-auto,
+.bs-popover-top,
+.bs-popover-end,
+.bs-popover-bottom,
+.bs-popover-start {
+
+  /*box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+*/
+box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+} 
+.custom-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  width: 260px;
+  z-index: 1000000 !important;
+  display: none;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+}
+
+.custom-popover.show {
+  display: block;
+}
+.card {
+  overflow: visible;
+  position: relative; /* importante para que el popover se posicione bien */
+}
+
+.active{
+  background-color: rgb(0, 110, 213) !important;
+  color: #fff !important;
+}
+
+.contenedor{
+  padding: 40px;
+}

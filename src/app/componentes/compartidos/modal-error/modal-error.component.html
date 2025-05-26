@@ -1,0 +1,24 @@
+
+<p-dialog
+  header="Error"
+  [(visible)]="visible"
+  [modal]="true"
+  [closable]="false"
+  [style]="{ 'width': 'auto', 'height': 'auto' }"
+  styleClass="modal-error"
+>
+  <div class="contenido-error-dialogo">
+    <i class="pi pi-exclamation-triangle icono-error"></i>
+    <pre>{{ mensaje }}</pre>
+  
+  </div>
+
+  <div class="footerModal">
+    <button
+      type="button"
+      class="btn btn-cancelar"
+      (click)="visible = false"
+    >Cerrar</button>
+  </div>
+</p-dialog>
+

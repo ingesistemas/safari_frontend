@@ -1,0 +1,11 @@
+::ng-deep .p-float-label label {
+  font-size: 26px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .p-float-label.p-input-filled label,
+::ng-deep .p-float-label.p-focus label {
+  font-size: 42px;
+  color: #007bff;
+}

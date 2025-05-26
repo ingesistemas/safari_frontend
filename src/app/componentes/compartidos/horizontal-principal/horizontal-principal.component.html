@@ -1,0 +1,30 @@
+<nav>
+  <div class="logo">
+   <button class="btn btn-sm pi pi-bars"></button>
+  </div>
+
+  <div class="nav-links">
+    <div class="left-links">
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+      <a [routerLink]="['/servicios']" routerLinkActive="active">Servicios</a>
+      <a [routerLink]="['/proyectos']" routerLinkActive="active">Proyectos</a>
+      <a [routerLink]="['/contactos']" routerLinkActive="active">Contacto</a>
+      @if(estadoActual != 'Autenticado'){
+        <a [routerLink]="['/usuarios/ingresar']" (click)="estado(false)" routerLinkActive="active">Ingresar</a>
+      }
+    </div>
+
+    @if(estadoActual == 'Autenticado'){
+      <div class="contieneSesion">
+        <p-button label="Cerrar sesión" variant="outlined" severity="danger" (onClick)="cerrarSesion()" />
+        <p-splitButton [model]="items" severity="primary" text class="btnCerrarSesion">
+          <ng-template pTemplate="button">
+            <span class="text-primary pi pi-user" style="margin-right: 0.5rem;"></span>
+            <span class="text-primary">{{ emailActual }}</span>
+          </ng-template>
+        </p-splitButton>
+      </div>
+    }
+
+  </div>
+</nav>

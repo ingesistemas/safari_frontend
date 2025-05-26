@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovación Digital</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+<body>
+
+    <section class="section">
+        <h2 data-aos="fade-up">Proyectos en Marcha</h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+            <img src="https://source.unsplash.com/800x600/?technology,innovation" alt="Tech">
+            <div class="card-content">
+                <h3>Innovación Urbana</h3>
+                <p>Redefiniendo las ciudades del futuro con tecnología sustentable.</p>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://source.unsplash.com/800x600/?ai,robotics" alt="AI">
+            <div class="card-content">
+                <h3>Inteligencia Artificial</h3>
+                <p>IA que aprende, se adapta y mejora procesos en tiempo real.</p>
+               <button type="button" class="btn btn-primary">Primary</button>
+               <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://source.unsplash.com/800x600/?ux,design" alt="UX">
+            <div class="card-content">
+                <h3>Diseño de Experiencia</h3>
+                <p>Interacciones intuitivas que convierten usuarios en fans.</p>
+                <button 
+                type="button" 
+                class="btn btn-primary mt-3"
+                data-bs-toggle="popover"
+                title="Título del Popover"
+                data-bs-content="Este es el contenido del popover">
+                Mostrar Popover
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background:white;">
+    <h2 data-aos="fade-right">Últimas Noticias</h2>
+    <div class="grid">
+        <div class="card" data-aos="zoom-in">
+            <img src="https://source.unsplash.com/800x600/?startup,office" alt="Startup">
+            <div class="card-content">
+                <h3>Nuevas Startups</h3>
+                <p>Modelos de negocio disruptivos para el mundo postdigital.</p>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="150">
+            <img src="https://source.unsplash.com/800x600/?cloud,computing" alt="Cloud">
+            <div class="card-content">
+                <h3>Computación en la Nube</h3>
+                <p>La infraestructura como servicio crece exponencialmente.</p>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="300">
+            <img src="https://source.unsplash.com/800x600/?tech,networking" alt="Networking">
+            <div class="card-content">
+                <h3>Redes de Nueva Generación</h3>
+                <p>Conectividad más rápida, eficiente y segura en todo el mundo.</p>
+            </div>
+        </div>
+    </div>
+    <div><h1>PRUEBA</h1></div>
+    <p-button (click)="op.toggle($event)" icon="pi pi-share-alt" label="Share" />
+<p-popover #op>
+    <div class="flex flex-col gap-4 w-[25rem]">
+        <div>
+            <span class="font-medium text-surface-900 dark:text-surface-0 block mb-2">Share this document</span>
+            <p-inputgroup>
+                <input pInputText value="https://primeng.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]" />
+                <p-inputgroup-addon>
+                    <i class="pi pi-copy"></i>
+                </p-inputgroup-addon>
+            </p-inputgroup>
+        </div>
+        <div>
+            <span class="font-medium text-surface-900 dark:text-surface-0 block mb-2">Invite Member</span>
+            <div class="flex">
+                <p-inputgroup>
+                    <input pInputText disabled />
+                    <button pButton label="Invite" icon="pi pi-users"></button>
+                </p-inputgroup>
+            </div>
+        </div>
+        <div>
+            <span class="font-medium text-surface-900 dark:text-surface-0 block mb-2">Team Members</span>
+            <ul class="list-none p-0 m-0 flex flex-col gap-4">
+                @for(member of members; track member) {
+                <li class="flex items-center gap-2">
+                    <img [src]="'https://primefaces.org/cdn/primeng/images/demo/avatar/' + member.image" style="width: 32px" />
+                    <div>
+                        <span class="font-medium">{{ member.name }}</span>
+                        <div class="text-sm text-muted-color">{{ member.email }}</div>
+                    </div>
+                    <div class="flex items-center gap-2 text-muted-color ml-auto text-sm">
+                        <span>{{ member.role }}</span>
+                        <i class="pi pi-angle-down"></i>
+                    </div>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</p-popover>
+</section>
+
+<footer data-aos="fade-in">
+    &copy; 2025 Digital Vision. Diseñado con pasión y tecnología.
+</footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+        duration: 1000,
+        once: true,
+        });
+    </script>
+</body>
+
+</html>

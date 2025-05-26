@@ -1,0 +1,16 @@
+@if(mostrarCargando == true){
+    <app-cargando></app-cargando>
+}
+
+@if(mostrarError == true){
+    <app-modal-error></app-modal-error>
+}
+
+@if(estado == true){
+    <app-encabezado ></app-encabezado>
+}
+<app-horizontal-principal></app-horizontal-principal>
+<span>{{ estado }}</span>
+<router-outlet />
+
+

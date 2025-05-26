@@ -1,0 +1,9 @@
+.p-float-label label {
+  font-size: 36px !important;
+  transition: all 0.3s ease;
+}
+
+.p-float-label.p-input-filled label,
+.p-float-label.p-focus label {
+  font-size: 32px !important;
+}

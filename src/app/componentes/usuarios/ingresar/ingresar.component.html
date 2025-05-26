@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Moderno</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+</head>
+<body>
+
+  <div class="login-container contieneFormulario" data-aos="zoom-in">
+    <div class="headerForm">
+      <h2>Iniciar Sesión</h2>
+    </div>
+    
+    <form autocomplete="off" class="formulario" [formGroup]="formIngresar" (keydown.enter)="onEnter($event)">     
+      <div class="imagenIngreso" style="width: 70%; margin: 0 auto; padding-top: 0;">
+        <img src="imagenes/logo.jpg" alt="" style="width: 200px;  ">
+      </div> 
+      
+      <p-floatlabel variant="on" class="mInput">
+        <input pInputText id="usuario" formControlName="usuario" 
+        class="form-control form-control-sm"  data-aos="flip-down" data-aos-delay="100"/>
+        <label for="usuario">Usuario</label>
+      </p-floatlabel>
+      <div class="contieneLabelError">
+        @if(formularioInvalido('usuario')){
+            <small class="labelError">{{ getErrores('usuario')}}</small>
+        }   
+      </div>
+         
+      
+      <p-floatlabel variant="on"  class="mInput">
+        <input pInputText id="email" formControlName="email" 
+        class="form-control form-control-sm" data-aos="flip-down" data-aos-delay="200" />
+        <label for="email">Correo electrónico</label>
+      </p-floatlabel>
+      <div class="contieneLabelError">
+        @if(formularioInvalido('email')){
+          <small class="labelError">{{ getErrores('email')}}</small>
+        }
+      </div>
+        
+
+      <!-- <div class="mb-3" data-aos="flip-down" data-aos-delay="200">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" class="form-control form-control-sm" formControlName="email" >
+      </div> -->
+
+      <p-floatlabel variant="on"  class="mInput">
+        <input pInputText id="password" formControlName="password" 
+        class="form-control form-control-sm" data-aos="flip-down" data-aos-delay="300" />
+        <label for="password">Contraseña</label>
+      </p-floatlabel>
+      <div class="contieneLabelError">
+        @if(formularioInvalido('password')){
+          <small class="labelError">{{ getErrores('password')}}</small>
+        }
+      </div>
+        
+      
+      <div class="footerForm">
+        <button type="button" class="btn btn-primary btn-sm" 
+          data-aos="fade-up" 
+          data-aos-delay="400"
+          (click)="ingresar($event); $event.preventDefault()">Ingresar
+        </button>
+      
+        <button  class="btn btn-light btn-cancelar btn-sm" 
+          data-aos="fade-up" data-aos-delay="300"
+          [routerLink]="" (click)="estadoCabecera(true);
+          $event.preventDefault()">Cancelar
+        </button>  
+      </div>
+      
+    </form>
+    
+    <div class=" footerForm footer-text" data-aos="fade-up" data-aos-delay="400">
+      ¿No tienes cuenta? <a href="#" style="color: #3b82f6;">Regístrate</a>
+    </div>
+  </div>
+
+  <div class="card flex justify-center">
+    <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'" />
+      {{ mensaje }} 
+  </div>
+
+  <!-- Scripts AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>

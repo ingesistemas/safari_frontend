@@ -1,0 +1,190 @@
+.login-container {
+      background: rgb(255, 255, 255);
+      padding: 0px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in-out;
+      margin: -20px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #1e40af;
+      margin-bottom: 30px;
+      padding: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px #bfdbfe;     
+    }
+
+    .btn-login {
+      width: 40%;
+      background-color: #3b82f6;
+      color: white;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-login:hover {
+      background-color: #2563eb;
+    }
+
+    .btn-cancelar{
+        margin-left: 3px;
+        background-color: #f3f3f3;
+        color: rgb(236, 106, 0);
+    }
+
+    .btn-cancelar:hover {
+      background-color: #e4e4e4;
+       color: rgb(236, 28, 0);
+    }
+
+    .btn:hover{
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    
+    .label{
+        color: rgb(97, 155, 200);
+    }
+
+    .form-control{
+        color: rgb(98, 98, 98);
+    }
+
+    .headerForm{
+        padding: 0;
+        background-color: #dee2e6;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .contieneFormulario{
+        padding: 0;
+        margin: 40px auto;
+    }
+
+    .formulario{
+        padding: 15px 15px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .footerForm{
+        border-top: 1px solid #d0d0d0;
+        padding: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .labelError{
+      display: block;
+      color: red; /* o el color que uses para errores */
+      font-size: 0.875rem;
+    }
+
+    .mInput{
+      padding-top: -10px !important;
+    }
+    
+    .tituloFormulario{
+      color: #004989;
+      font-size: 18px !important;
+      font-weight: bold;
+    }
+
+    .contieneLabelError{
+      padding-bottom: 30px;
+    }
+
+    .footerForm{
+      margin-top: 15px;
+      border: none;
+      background-color: #e7e7e7;
+      margin-left: -15px;
+      margin-right: -15px;
+      margin-bottom: -10px;
+    }
+
+    /* Estado por defecto (sin foco) */
+.mInput .custom-label {
+  color: #6c757d; /* gris tenue */
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Cuando el input está enfocado */
+.mInput:focus-within .custom-label {
+  color: #007d99; /* azul al enfocar */
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+/* Cuando el input pierde el foco, vuelve al estilo inicial */
+.mInput:not(:focus-within) .custom-label {
+  color: #0084a4 !important; /* rojo por ejemplo */
+  font-size: 120px;
+  font-weight: normal !important;
+}
+
+p-floatLabel label {
+  font-size: 1rem !important;
+  transition: font-size 0.2s ease;
+}
+
+/* Solo cuando el input está enfocado */
+p-floatLabel input:focus + label {
+  font-size: 1.1rem !important;
+}
+
+input:focus {
+  background-color: #ffffff !important; /* Azul */
+  /*background: linear-gradient(to bottom, #ffffff, #ffffff, #e1e1e1, #efefef) !important;*/
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px !important;
+  outline: none; /* Elimina el contorno predeterminado del navegador */
+  border: 1px solid #008aa2 !important;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
+
+}
+
