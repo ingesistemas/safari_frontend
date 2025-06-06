@@ -34,6 +34,7 @@
               "src/estilos/modal.css",
               "src/estilos/modal-error.css",
               "src/estilos/toast.css",
+              "src/estilos/tabla.css",
               "src/estilos/estilos.scss"
             ],
             "scripts": [

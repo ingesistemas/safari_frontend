@@ -10,19 +10,11 @@ import { ErrorServicesService } from '../../../servicios/error.service';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AutenticaService } from '../../../servicios/autentica.service';
-
-
-export interface respuesta {
-  Data: [],
-  Mensaje: string,
-  Error: boolean,
-  Status: string,
-  access_token?: string
-}
+import { AutoFocusModule } from 'primeng/autofocus';
 
 @Component({
   selector: 'app-ingresar',
-  imports: [RouterLink, ReactiveFormsModule, FloatLabelModule, InputTextModule, ToastModule],
+  imports: [RouterLink, ReactiveFormsModule, FloatLabelModule, InputTextModule, ToastModule, AutoFocusModule],
   providers: [MessageService],
   templateUrl: './ingresar.component.html',
   styleUrl: './ingresar.component.css',
@@ -45,9 +37,9 @@ export class IngresarComponent{
   private auntenticarService = inject(AutenticaService)
 
   formIngresar = this.fb.group({
-    usuario: ['Duvan' , [Validators.required, Validators.minLength(5)]],
-    email: ['duvan.silva@gmail.com', [Validators.required, Validators.email]],
-    password: ['duvan', [Validators.required, Validators.minLength(5)]]
+    usuario: ['Dylan' , [Validators.required, Validators.minLength(5)]],
+    email: ['dylan@gmail.com', [Validators.required, Validators.email]],
+    password: ['123456', [Validators.required, Validators.minLength(5)]]
   })
 
   private encabezadoService = inject(MostrarEncabezadoServicieService);
@@ -60,27 +52,27 @@ export class IngresarComponent{
   }
 
   
-  ingresar(event: Event) {
+  ingresar() {
     this.errorService.cambiarEstado(false, '');
-   
-    event.preventDefault(); 
+
     if(this.formIngresar.valid){
       this.cargandoService.cambiarEstado(true)
       let datos = this.formIngresar.value;
       this.peticionService.peticion("/ingresar", datos).subscribe({
         next: (data) => {
-          const misDatos = data.Data;
+          const misDatos = data;
+          console.log(misDatos)
           this.cargandoService.cambiarEstado(false)
           
           if(data.Error == true){
             this.errorService.cambiarEstado(true, data.Mensaje);
           }else{
-            this.auntenticarService.actualizarEstados(true, misDatos, data.access_token!)
+            this.auntenticarService.actualizarEstados(true, misDatos.Datos, data.access_token!)
             this.mensaje = data.Mensaje
             this.show()
             setTimeout(() =>{
               this.estadoCabecera(true)
-            }, 2000)
+            }, 1000)
           }
         },
         error: (err) => {

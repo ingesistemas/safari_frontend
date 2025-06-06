@@ -1,5 +1,5 @@
 import { inject, Injectable, signal, WritableSignal  } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+
 import { SonidosService } from './sonidos.service';
 
 @Injectable({
@@ -10,24 +10,24 @@ export class ErrorServicesService {
   constructor() { }
 
   //valor: WritableSignal<boolean> = signal(false);
-  private valor = new BehaviorSubject<boolean>(false);
-  private mensaje = new BehaviorSubject<string>('');
+
   private sonidoService = inject(SonidosService)
+  valor: WritableSignal<boolean> = signal(false);
+  mensaje: WritableSignal<string> = signal('');
 
   cambiarEstado(valor:boolean, mensaje: string) {
     if(valor){
       this.sonidoService.playSound('alert')
     }
-    this.valor.next(valor)
-    this.mensaje.next(mensaje)
-    
+    this.valor.set(valor)
+    this.mensaje.set(mensaje)
   }
 
   obtenerEstado(){
-    return this.valor.asObservable();
+    return this.valor();
   }
 
   obtenerMensaje(){
-    return this.mensaje.asObservable();
+    return this.mensaje();
   }
 }

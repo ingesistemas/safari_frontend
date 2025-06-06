@@ -45,7 +45,8 @@
     }
 
     .btn-login {
-      width: 40%;
+      width: auto;
+      min-width: 40%;
       background-color: #3b82f6;
       color: white;
       padding: 12px;
@@ -63,7 +64,7 @@
     .btn-cancelar{
         margin-left: 3px;
         background-color: #f3f3f3;
-        color: rgb(236, 106, 0);
+        color: rgb(236, 51, 0);
     }
 
     .btn-cancelar:hover {
@@ -71,8 +72,8 @@
        color: rgb(236, 28, 0);
     }
 
-    .btn:hover{
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    .btn:hover, .boton:hover{
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px !important;
     }
 
     .footer-text {
@@ -140,42 +141,46 @@
     .footerForm{
       margin-top: 15px;
       border: none;
-      background-color: #e7e7e7;
+      background-color: #eeeeee;
       margin-left: -15px;
       margin-right: -15px;
       margin-bottom: -10px;
     }
 
+    p{
+      text-align: justify;
+    }
+
     /* Estado por defecto (sin foco) */
 .mInput .custom-label {
   color: #6c757d; /* gris tenue */
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.3s ease;
 }
 
 /* Cuando el input está enfocado */
 .mInput:focus-within .custom-label {
   color: #007d99; /* azul al enfocar */
-  font-size: 12px;
-  margin-left: 15px;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 /* Cuando el input pierde el foco, vuelve al estilo inicial */
 .mInput:not(:focus-within) .custom-label {
   color: #0084a4 !important; /* rojo por ejemplo */
-  font-size: 120px;
+  font-size: 14px;
   font-weight: normal !important;
 }
 
-p-floatLabel label {
+/* p-floatLabel label {
   font-size: 1rem !important;
   transition: font-size 0.2s ease;
-}
+} */
 
 /* Solo cuando el input está enfocado */
-p-floatLabel input:focus + label {
+/* p-floatLabel input:focus + label {
   font-size: 1.1rem !important;
-}
+} */
 
 input:focus {
   background-color: #ffffff !important; /* Azul */
@@ -187,4 +192,44 @@ input:focus {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
 
 }
+/* Aplica color de fondo directamente al contenedor */
+.custom-select {
+  background-color: #f0f8ff; /* azul claro */
+  border-radius: 6px;
+  padding: 0.25rem;
+}
 
+/* Aplica estilos al dropdown de forma más directa */
+.custom-select .p-element,
+.custom-select .p-dropdown {
+  background-color: #f0f8ff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 6px !important;
+}
+
+/* Texto del valor seleccionado */
+.custom-select .p-dropdown-label {
+  color: #333333 !important;
+}
+
+/* Al enfocar */
+.custom-select .p-focus {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+/* Items en el panel desplegable */
+.p-dropdown-items .p-dropdown-item.p-highlight,
+.p-dropdown-items .p-dropdown-item:hover {
+  background-color: #045894 !important;
+  color: #ffffff !important;
+}
+
+/* SELECT*/
+
+
+.custom-label-select {
+  color: #004ea0 !important;
+  font-size: 1rem !important;
+  transform: translateY(-1rem) !important;
+}

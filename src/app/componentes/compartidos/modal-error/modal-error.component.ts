@@ -15,14 +15,16 @@ export class ModalErrorComponent {
 
    constructor(){
     effect(() =>{
-      this.mostrarErrorService.obtenerMensaje().subscribe((data)=>{
-        this.mensaje = data
-      })
+      this.mensaje = this.mostrarErrorService.obtenerMensaje()
     })
    }
 
     showDialog() {
         this.visible = !this.visible;
+    }
+
+    cerrar(){
+      this.mostrarErrorService.cambiarEstado(false, '');
     }
 
 }

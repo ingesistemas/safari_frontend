@@ -1,1 +1,97 @@
-<p>listar-usuarios works!</p>
+<div class="contieneFormulario" style="width: 80%;"><!-- listar-usuarios.component.html -->
+    <div class="card">
+        <div class="header-busqueda" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding-right: 10px;">
+            <div class="contieneElementosBusqueda row">
+                <div class="col-md-6 col-sm-12 ">
+                    <h3 class="tituloTabla" style="margin: 0;">Listado de usuarios</h3>
+                </div>
+                
+                <div class="col-md-4 col-sm-6">
+                    <div class="imputBusqueda">
+                        <form [formGroup]="form">
+                            <p-inputgroup>
+                                <input
+                                pInputText
+                                type="text"
+                                formControlName="globalFilter"
+                                placeholder="Buscar usuarios..."
+                                (input)="filtrarUsuarios($event)" />
+                                <p-inputgroup-addon>
+                                <p-button icon="pi pi-search" severity="secondary" variant="text" />
+                                </p-inputgroup-addon>
+                            </p-inputgroup>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6 mt-4">
+                    <p-button label="Nuevo registro" severity="info" class="boton" [routerLink]="['/usuarios/crear-usuario']"/>
+                    <!-- <button class="btn btn-sm btn-primary">
+                        <i class="pi pi-plus"></i> Nuevo registro
+                    </button> -->
+                </div>
+            </div>
+        </div>
+
+        <p-table
+        responsiveLayout="scroll" styleClass="tabla-responsiva"
+            #dt
+            [value]="usuarios"
+            [paginator]="true"
+            [rows]="5"
+            showGridlines
+            [globalFilterFields]="['id', 'email', 'celular', 'rol', 'email_creador']"
+            [showCurrentPageReport]="true"
+            currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+            stripedRows [tableStyle]="{'min-width': '50rem'}"
+            [rowsPerPageOptions]="[5,10,20]">
+            <ng-template pTemplate="header" class="cabeceraTabla">
+                <tr>
+                    <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+                    <th pSortableColumn="email">Correo lectrónico <p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="celular">Celular <p-sortIcon field="celular"></p-sortIcon></th>
+                    <th pSortableColumn="rol">Rol <p-sortIcon field="rol"></p-sortIcon></th>
+                    <th pSortableColumn="emailCreador">Creado por <p-sortIcon field="rol"></p-sortIcon></th>                    
+                    <th pSortableColumn="activo">Estado <p-sortIcon field="estado"></p-sortIcon></th>
+                    <th >Acciones</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.celular }}</td>
+                    <td>{{ user.rol.rol }}</td>
+                    <td>{{ user.emailCreador}}</td>
+
+                    <td> 
+                        @if ( user.activo == 0 ){
+                            <p-button class="btnTabla" (onClick)="cambiarEstado(user)" variant="outlined" severity="success" size="small" >  <i class="pi pi-check-circle"> Activo</i> </p-button>
+                        }@else {
+                            <p-button class="btnTabla" (onClick)="cambiarEstado(user)" variant="outlined" severity="danger" size="small" >  <i class="pi pi-times-circle"> Inactivo</i> </p-button>
+                        }
+                 
+                    </td>
+                    <td>
+                        <p-button class="btnTabla" (onClick)="cambiarEstado(user)" variant="outlined" severity="info" size="small" >  <i class="pi pi-file-edit"> Editar</i> </p-button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </div>
+    <div class="card flex justify-center">
+        <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'500ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'" />
+        
+    </div>
+
+    <!-- Scripts AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
+</div>

@@ -8,4 +8,6 @@ export interface Usuario {
     id_rol: string;
     activo: string;
     roles: Rol;
+    emailCreador: string;
+    id_usuario?: string;
 }

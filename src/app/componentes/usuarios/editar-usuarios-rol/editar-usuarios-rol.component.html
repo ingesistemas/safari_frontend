@@ -1,0 +1,85 @@
+<div class="contieneFormulario" style="width: 40%;">
+    <form class="card flex justify-center formulario" [formGroup]="formulario" autocomplete="off"  >
+       
+        <fieldset class="border p-3 rounded">
+            <legend class="float-none w-auto px-2 tituloFormulario">Editar perfil y rol</legend>
+            <div class="row">
+                <div class="col-md-6">
+                    <p-floatlabel variant="on" class="mInput">
+                        <input pInputText id="usuario" formControlName="usuario" 
+                        class="form-control form-control-sm"  >
+                        <label for="usuario" class="custom-label">Nombre usuario</label>
+                    </p-floatlabel>
+                    <div class="contieneLabelError">
+                        <small class="labelError">{{ retotnaError('usuario')}}</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <p-floatlabel variant="on" class="mInput">
+                        <input pInputText id="celular" formControlName="celular" 
+                        class="form-control form-control-sm" />
+                        <label for="celular" class="custom-label">No. de celular</label>
+                    </p-floatlabel>
+                    <div class="contieneLabelError">
+                       <small class="labelError">{{ retotnaError('celular')}}</small> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p-floatlabel variant="on" class="mInput">
+                        <input pInputText id="email" formControlName="email" 
+                        class="form-control form-control-sm" />
+                        <label for="email" class="custom-label">Correo electrónico</label>
+                    </p-floatlabel>
+                    <div class="contieneLabelError">
+                        <small class="labelError">{{ retotnaError('email')}}</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <p-floatlabel class="mInput" variant="on" style="display: block; width: 100%">
+                        <p-select 
+                        inputId="id_rol" 
+                        [options]="roles" 
+                        optionLabel="name" 
+                        styleClass="custom-select" 
+                        [style]="{ width: '100%' }"
+                        />
+                        <label for="id_rol" class="custom-label">Rol</label>
+                    </p-floatlabel>
+
+                    <div class="contieneLabelError">
+                        <small class="labelError">{{ retotnaError('id_rol') }}</small>
+                    </div>
+                </div>
+                
+            </div>
+        </fieldset>
+       
+        <div class="footerForm">
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" style="width: 30%;">
+                <button type="button" class="btn btn-primary" (click)="aceptar()">Aceptar</button>
+                <button type="button" class="btn btn-secundary btn-cancelar" [routerLink]="['/']">Cancelar</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="card flex justify-center">
+    <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'" />
+      {{ mensajeToast }} 
+    </div>
+
+    <!-- Scripts AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+        duration: 800,
+        once: true,
+        });
+    </script>
+</div>
+

@@ -1,1 +1,111 @@
-<p>crear-usuario works!</p>
+<div class="contieneFormulario" style="width: 60%;">
+    <form class="card flex justify-center formulario" [formGroup]="formulario" autocomplete="off"  >
+       
+        <fieldset class="border p-3 rounded">
+            <legend class="float-none w-auto px-2 tituloFormulario">Crear usuario</legend>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="alert alert-primary mb-3" role="alert">
+                        <h4 class="alert-heading">Tenga en cuenta que:</h4>
+                        <p>En este formulario quedarás registrado y podrás ingresar o editar información relacionada únicamente con tu familia.
+                        </p>
+                        <p class="mb-0">Si necesitas ayuda, podrás acercarte a un punto de internet con atención al público, siempre y cuando tenga acceso y/o 
+                            permisos para este tipo de registros. Es decir, que el punto de internet, esté autorizado para  registrar y editar información del censo.
+                        </p>
+                        <hr>
+                        <p><strong>Importante aclarar que:</strong> la persona del punto de atención, le solicitará un código que le llegará a tu correo electrónico o al 
+                        sistema de mensajería de tu celular.
+                        </p>
+                        <button type="button" class="btn btn-primary" >Solicitar registro como usuario público</button>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p-floatlabel variant="on" class="mInput">
+                                <input pInputText id="usuario" formControlName="usuario" 
+                                class="form-control form-control-sm"  >
+                                <label for="usuario" class="custom-label">Nombre usuario</label>
+                            </p-floatlabel>
+                            <div class="contieneLabelError">
+                                <small class="labelError">{{ retotnaError('usuario')}}</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p-floatlabel variant="on" class="mInput">
+                                <input pInputText id="celular" formControlName="celular" 
+                                class="form-control form-control-sm" />
+                                <label for="celular" class="custom-label">No. de celular</label>
+                            </p-floatlabel>
+                            <div class="contieneLabelError">
+                            <small class="labelError">{{ retotnaError('celular')}}</small> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p-floatlabel variant="on" class="mInput">
+                                <input pInputText id="email" formControlName="email" 
+                                class="form-control form-control-sm" />
+                                <label for="email" class="custom-label">Correo electrónico</label>
+                            </p-floatlabel>
+                            <div class="contieneLabelError">
+                                <small class="labelError">{{ retotnaError('email')}}</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p-floatlabel variant="on" class="mInput">
+                                <input pInputText id="password" formControlName="password" 
+                                class="form-control form-control-sm" />
+                                <label for="password" class="custom-label">Contraseña</label>
+                            </p-floatlabel>
+                            <div class="contieneLabelError">
+                            <small class="labelError">{{ retotnaError('password')}}</small> 
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p-floatlabel variant="on" class="mInput">
+                                <input pInputText id="confirma" formControlName="confirma" 
+                                class="form-control form-control-sm" />
+                                <label for="confirma" class="custom-label">Confirmar</label>
+                            </p-floatlabel>
+                            <div class="contieneLabelError">
+                            <small class="labelError">{{ retotnaError('confirma')}}</small> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footerForm">
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group" style="width: 100%;">
+                            <button type="button" class="btn btn-primary" (click)="aceptar()">Registrarse como usuario familiar</button>
+                            <button type="button" class="btn btn-secundary btn-cancelar" [routerLink]="['/usuarios/listar-usuarios']">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </fieldset>
+
+    </form>
+
+    <div class="card flex justify-center">
+    <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'" />
+      {{ mensajeToast }} 
+    </div>
+
+    <!-- Scripts AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+        duration: 800,
+        once: true,
+        });
+    </script>
+</div>
+
+

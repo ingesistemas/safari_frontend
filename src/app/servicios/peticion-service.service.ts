@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { respuesta } from '../componentes/usuarios/ingresar/ingresar.component';
+import { IRespuesta } from '../interfaces/IRespuesta';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,22 @@ export class PeticionServiceService {
 
   // Método para obtener comandos
   peticion(url: string, datos:any){
-    return this.http.post<respuesta>(this.apiUrl + url, datos).pipe(
+    return this.http.post<IRespuesta>(this.apiUrl + url, datos).pipe(
       map(response => response), // asumimos que la API devuelve { status, data }
       catchError(error => {
-        console.error('Error al obtener comandos:', error);
         return throwError(() => new Error('No se pudieron cargar los datos.', error));
       })
     );
+  }
+
+ 
+  peticionGET(url: string): Observable<IRespuesta> {
+    return this.http.get<IRespuesta>(this.apiUrl + url).pipe(
+      map(response => response), // asumimos que la API devuelve { status, data }
+      catchError(error => {
+        return throwError(() => new Error('No se pudieron cargar los datos.', error));
+      })
+    )
   }
 
   peticionToken(url: string, datos:any, jwtToken: string|null){
@@ -34,7 +44,7 @@ export class PeticionServiceService {
         'Authorization': `Bearer ${jwtToken}`
       });
 
-      return this.http.post<respuesta>(this.apiUrl + url, datos, { headers }).pipe(
+      return this.http.post<IRespuesta>(this.apiUrl + url, datos, { headers }).pipe(
         map(response => response), // asumimos que la API devuelve { status, data }
         catchError(error => {
           console.error('Error al obtener comandos:', error);
@@ -42,7 +52,25 @@ export class PeticionServiceService {
         })
       );
     }
-    
+  }
+
+  peticionTokenGET(url: string, jwtToken: string|null){
+    if (!jwtToken) {
+      console.error('Token JWT ausente');
+      return throwError(() => new Error('No hay token de autenticación.'));
+    }else{
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${jwtToken}`
+      });
+
+      return this.http.get<IRespuesta>(this.apiUrl + url, { headers }).pipe(
+        map(response => response), // asumimos que la API devuelve { status, data }
+        catchError(error => {
+          console.error('Error al obtener comandos:', error);
+          return throwError(() => new Error('No se pudieron cargar los datos.', error));
+        })
+      );
+    }
   }
 
    // Si necesitas enviar un token de autenticación

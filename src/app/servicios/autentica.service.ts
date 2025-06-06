@@ -31,7 +31,7 @@ export class AutenticaService {
       this._token.set(token)
     }else{
       this._estadoUsuario.set('Sin-Autenticar')
-      this._usuario.set({id: 0, usuario: '', email: '', celular: '', activo: '', id_rol: '', roles: {id:'', rol:'', activo: ''}})
+      this._usuario.set({id: 0, usuario: '', email: '', celular: '', activo: '', id_rol: '', emailCreador:'', roles: {id:'', rol:'', activo: ''}})
       this._token.set('')
     }
   }

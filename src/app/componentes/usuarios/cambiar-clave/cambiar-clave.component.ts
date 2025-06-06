@@ -50,7 +50,6 @@ export class CambiarClaveComponent {
   aceptar(){
     this.usuario = this.usuarioService.usuarioActual()
     this.formulario.get('id')?.setValue(this.usuario?.id ?? 0)
-    const id = this.usuario?.id
     this.mensaje = ''
 
     this.formulario.markAllAsTouched();

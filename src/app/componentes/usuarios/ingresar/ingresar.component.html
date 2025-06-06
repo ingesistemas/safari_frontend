@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login Moderno</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-
 </head>
-<body>
 
+<body>
   <div class="login-container contieneFormulario" data-aos="zoom-in">
     <div class="headerForm">
       <h2>Iniciar Sesión</h2>
@@ -21,6 +20,7 @@
       
       <p-floatlabel variant="on" class="mInput">
         <input pInputText id="usuario" formControlName="usuario" 
+        [pAutoFocus]="true"
         class="form-control form-control-sm"  data-aos="flip-down" data-aos-delay="100"/>
         <label for="usuario">Usuario</label>
       </p-floatlabel>
@@ -30,7 +30,6 @@
         }   
       </div>
          
-      
       <p-floatlabel variant="on"  class="mInput">
         <input pInputText id="email" formControlName="email" 
         class="form-control form-control-sm" data-aos="flip-down" data-aos-delay="200" />
@@ -41,12 +40,6 @@
           <small class="labelError">{{ getErrores('email')}}</small>
         }
       </div>
-        
-
-      <!-- <div class="mb-3" data-aos="flip-down" data-aos-delay="200">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" class="form-control form-control-sm" formControlName="email" >
-      </div> -->
 
       <p-floatlabel variant="on"  class="mInput">
         <input pInputText id="password" formControlName="password" 
@@ -59,33 +52,27 @@
         }
       </div>
         
-      
       <div class="footerForm">
         <button type="button" class="btn btn-primary btn-sm" 
           data-aos="fade-up" 
           data-aos-delay="400"
-          (click)="ingresar($event); $event.preventDefault()">Ingresar
+          (click)="ingresar()">Ingresar
         </button>
       
         <button  class="btn btn-light btn-cancelar btn-sm" 
           data-aos="fade-up" data-aos-delay="300"
           [routerLink]="" (click)="estadoCabecera(true);
           $event.preventDefault()">Cancelar
-        </button>  
+        </button>     
+          <small>¿No tienes cuenta? <a [routerLink]="['/usuarios/crear-usuario']" style="color: #3b82f6;">Regístrate</a></small>
       </div>
-      
     </form>
-    
-    <div class=" footerForm footer-text" data-aos="fade-up" data-aos-delay="400">
-      ¿No tienes cuenta? <a href="#" style="color: #3b82f6;">Regístrate</a>
-    </div>
   </div>
 
   <div class="card flex justify-center">
     <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'" />
-      {{ mensaje }} 
   </div>
-
+  
   <!-- Scripts AOS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>

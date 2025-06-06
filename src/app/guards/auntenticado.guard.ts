@@ -8,6 +8,7 @@ export const AutenticadoGuard: CanMatchFn = (
 ) => {
     const estadoActual = inject(AutenticaService)
     const estado = estadoActual.estadoActual()
+
     if (estado == 'Autenticado'){
         return true
     }

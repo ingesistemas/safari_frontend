@@ -34,27 +34,19 @@ import { ErrorServicesService } from './servicios/error.service';
   ]
 })
 export class AppComponent implements OnInit {
-  estado = true
-  mostrarCargando = false
-  mostrarError = false
   private mostrarCargadoService = inject(MostrarCargandoService)
   private mostrarErrorService = inject(ErrorServicesService)
 
+  estado = true
+  mostrarCargando = false
+  mostrarError = false
+  
   constructor(private serviciceEncabezado : MostrarEncabezadoServicieService, private location: Location){
     effect(() => {
-      this.estado = this.serviciceEncabezado.obtenerEstado();
-    }); 
-
-    effect(() =>{
+      this.mostrarError  = this.mostrarErrorService.obtenerEstado()
+      this.estado = this.serviciceEncabezado.obtenerEstado()
       this.mostrarCargando = this.mostrarCargadoService.obtenerEstado()
-    })
-
-    effect(() =>{
-
-     this.mostrarErrorService.obtenerEstado().subscribe((data)=>{
-         this.mostrarError = data
-     })
-    })
+    }); 
 
   }
 

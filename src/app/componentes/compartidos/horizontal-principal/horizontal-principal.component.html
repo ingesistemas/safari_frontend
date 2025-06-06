@@ -9,6 +9,8 @@
       <a [routerLink]="['/servicios']" routerLinkActive="active">Servicios</a>
       <a [routerLink]="['/proyectos']" routerLinkActive="active">Proyectos</a>
       <a [routerLink]="['/contactos']" routerLinkActive="active">Contacto</a>
+      <a (click)="atenea()" routerLinkActive="active">Atenea</a>
+      
       @if(estadoActual != 'Autenticado'){
         <a [routerLink]="['/usuarios/ingresar']" (click)="estado(false)" routerLinkActive="active">Ingresar</a>
       }

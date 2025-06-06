@@ -6,6 +6,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { AutenticaService } from '../../../servicios/autentica.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-horizontal-principal',
@@ -24,8 +25,8 @@ export class HorizontalPrincipalComponent {
   constructor(private mostrarEncabezadoServicio: MostrarEncabezadoServicieService){
 
      effect(()=>{
-      const email = this.autenticaServicio.usuarioActual()
-      this.emailActual = email?.email
+      const usuarioActual = this.autenticaServicio.usuarioActual()
+      this.emailActual = usuarioActual?.email
       const estado = this.autenticaServicio.estadoActual()
       this.estadoActual = estado
     })
@@ -66,10 +67,45 @@ export class HorizontalPrincipalComponent {
     this.mostrarEncabezadoServicio.cambiarEstado(estado);
     const valor = (this.mostrarEncabezadoServicio.obtenerEstado());
   }
+  private http = inject(HttpClient)
+  atenea() {
+    const body = {
+      agentId: -1,
+      userId: 33,
+      date1: "01-11-2024",
+      date2: "17-11-2024"
+    };
 
-  obtenerDatoActuales(){
-   
-    alert(this.estadoActual)
+    this.http.post('https://nabuapi.atenea.ai/api/nabu/downloadReport', body, {
+      responseType: 'blob',
+       headers: {
+        Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbmFidWFwaS5hdGVuZWEuYWlcL2FwaVwvbmFidVwvYXV0aCIsImlhdCI6MTc0ODUzNjYzMiwiZXhwIjoxNzQ4NzA5NDMyLCJuYmYiOjE3NDg1MzY2MzIsImp0aSI6ImlCSTR2VzZlY1k4dTF0ZlgiLCJzdWIiOjQzLCJwcnYiOiI0YTI2NTMzYmU1NGE0Y2Q0YmZmZDJhMjg4MTMwMWI4MWE2OTg3YjQ0In0.u0GhXcCNeojpU7xCeyLd3esJ0YNgzyjp0m9L1wBfpj8`,
+        Accept: 'application/json'
+      }
+    }).subscribe((response: Blob) => {
+      if (response.type === 'application/json') {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const text = reader.result as string;
+          console.log('⚠️ Respuesta JSON del servidor:', JSON.parse(text));
+        };
+        reader.readAsText(response);
+        return;
+      }
+
+      // Solo si es Excel
+      const blob = new Blob([response], {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      });
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'reporte.xlsx';
+      a.click();
+
+      window.URL.revokeObjectURL(url);
+    });
+  
   }
-
 }
